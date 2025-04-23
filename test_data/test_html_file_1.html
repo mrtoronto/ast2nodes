@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM HTML Editor Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Template Selector Modal -->
+    <div class="template-selector" id="templateSelector">
+        <button class="template-selector-close" id="closeTemplateSelector">×</button>
+        <div class="template-container">
+            <h2>Choose a Template</h2>
+            <div class="template-grid" id="templateGrid">
+                <!-- Templates will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- API Key Input -->
+    <div class="api-key-container">
+        <input type="password" id="apiKeyInput" class="api-key-input" placeholder="Enter your OpenAI API key">
+        <button id="saveApiKey" class="button button-primary">Save</button>
+        <div id="apiKeyStatus" class="api-key-status"></div>
+    </div>
+
+    <!-- Preview Toggle -->
+    <div class="toggle-container">
+        <span class="toggle-label">Editor View</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="previewToggle">
+            <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">Full Preview</span>
+    </div>
+
+    <div class="container main-content">
+        <h1>LLM HTML Editor Demo</h1>
+        
+        <div class="grid">
+            <!-- Chat Section -->
+            <div class="chat-container">
+                <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+                    <h2>Chat with AI</h2>
+                    <div id="chatMessages" class="chat-container mb-4" style="flex: 1; overflow-y: auto;"></div>
+                    <div class="flex gap-2">
+                        <input type="text" id="chatInput" class="input" placeholder="Ask the AI for help with your HTML...">
+                        <button id="sendMessage" class="button button-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Editor Section -->
+            <div class="editor-container">
+                <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2>HTML Editor</h2>
+                        <div class="flex gap-2">
+                            <button id="templatesButton" class="button button-secondary">
+                                <i class="fas fa-layer-group"></i>
+                                Templates
+                            </button>
+                            <button id="runButton" class="button button-success">
+                                <i class="fas fa-play"></i>
+                                Run
+                            </button>
+                        </div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <textarea id="htmlEditor"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-container">
+            <div class="card">
+                <h2>Live Preview</h2>
+                <div id="preview" class="h-full"></div>
+            </div>
+        </div>
+
+        <!-- Tool Call Log Section -->
+        <div class="mt-8 card tool-call-log">
+            <div class="flex justify-between items-center mb-2">
+                <h2>Tool Call Log</h2>
+                <div id="toolLogControls" class="flex gap-2"></div>
+            </div>
+            <div id="toolCallLog" class="bg-gray-50 rounded-lg font-mono text-sm h-48 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <!-- Full Page Preview -->
+    <div class="full-preview" id="fullPreview">
+        <iframe id="fullPreviewFrame"></iframe>
+    </div>
+
+    <!-- Reset Button -->
+    <div class="fixed bottom-4 right-4">
+        <button id="resetButton" class="button button-danger">
+            <i class="fas fa-redo"></i>
+            Reset
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+    <!-- Load our modularized JavaScript files -->
+    <script src="templates.js"></script>
+    <script src="constants.js"></script>
+    <script src="utilities.js"></script>
+    <script src="tools.js"></script>
+    <script src="ai.js"></script>
+    <script src="core.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
