@@ -1,6 +1,6 @@
 # Scripts Directory
 
-This directory contains utility scripts for working with the code parser and knowledge graph tools.
+This directory contains utility scripts for working with AST2Nodes - a tool that converts Abstract Syntax Trees to knowledge graph nodes for code analysis.
 
 ## Available Scripts
 

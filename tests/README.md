@@ -1,6 +1,6 @@
 # Testing Documentation
 
-This directory contains the comprehensive test suite for the code parser and knowledge graph tools.
+This directory contains the comprehensive test suite for AST2Nodes - a tool that converts Abstract Syntax Trees to knowledge graph nodes for code analysis.
 
 ## Running Tests
 
