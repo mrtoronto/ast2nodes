@@ -6,6 +6,14 @@ A tool for building and analyzing knowledge graphs from your codebase. Extract r
 
 AST2Nodes analyzes your codebase to build a comprehensive graph of code relationships. It supports multiple languages (Python, JavaScript, HTML, CSS) and provides intelligent analysis through MCP (Machine Comprehension Protocol) integration.
 
+## Demo
+
+### Large Codebase Analysis
+![Large Graph Demo](assets/big_graph_demo.gif)
+
+### Small Project Example
+![Small Graph Demo](assets/small_graph_demo.gif)
+
 ## Key Features
 
 - **Multi-Language Support**: Analyze Python, JavaScript, HTML, and CSS files
