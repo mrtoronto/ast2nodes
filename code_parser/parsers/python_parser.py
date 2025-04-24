@@ -13,6 +13,8 @@ class PythonCodeParser(ast.NodeVisitor):
         self.function_calls = []
         self.current_function = None
         self.current_class = None
+        self.imported_names = {}  # Maps imported names to their modules
+        self.defined_functions = set()  # Set of function names defined in this file
         
     def visit_Assign(self, node):
         """Extract variable assignments"""
@@ -120,6 +122,11 @@ class PythonCodeParser(ast.NodeVisitor):
     
     def visit_FunctionDef(self, node):
         """Extract function definitions"""
+        # Track this as a defined function
+        self.defined_functions.add(node.name)
+        if self.current_class:
+            self.defined_functions.add(f"{self.current_class.name}.{node.name}")
+            
         args = [arg.arg for arg in node.args.args]
         returns = None
         if node.returns:
@@ -134,6 +141,11 @@ class PythonCodeParser(ast.NodeVisitor):
             docstring=ast.get_docstring(node),
             parent_class=self.current_class.name if self.current_class else None
         )
+        
+        # Mark as internal function and store docstring in properties
+        func_def.properties['source'] = 'internal'
+        if func_def.docstring:
+            func_def.properties['docstring'] = func_def.docstring
         
         # Set current function context
         previous_function = self.current_function
@@ -165,6 +177,16 @@ class PythonCodeParser(ast.NodeVisitor):
             caller_function=self.current_function.name if self.current_function else None,
             caller_class=self.current_class.name if self.current_class else None
         )
+        
+        # Determine if this is an external or internal function call
+        if func_name in self.imported_names:
+            call.properties['source'] = 'external'
+            call.properties['import_info'] = self.imported_names[func_name]
+        elif func_name in self.defined_functions:
+            call.properties['source'] = 'internal'
+        else:
+            # Could be builtin or undefined
+            call.properties['source'] = 'unknown'
         
         self.function_calls.append(call)
         
@@ -236,6 +258,29 @@ class PythonCodeParser(ast.NodeVisitor):
         elif isinstance(node, ast.Attribute):
             return f"{self._get_name(node.value)}.{node.attr}"
         return str(node)
+
+    def visit_Import(self, node):
+        """Track imported names"""
+        for alias in node.names:
+            imported_name = alias.asname if alias.asname else alias.name
+            self.imported_names[imported_name] = {
+                'module': alias.name,
+                'alias': alias.asname,
+                'type': 'import'
+            }
+        self.generic_visit(node)
+    
+    def visit_ImportFrom(self, node):
+        """Track from ... import names"""
+        for alias in node.names:
+            imported_name = alias.asname if alias.asname else alias.name
+            self.imported_names[imported_name] = {
+                'module': node.module,
+                'name': alias.name,
+                'alias': alias.asname,
+                'type': 'import_from'
+            }
+        self.generic_visit(node)
 
 def parse_python_file(file_path: str) -> PythonCodeParser:
     """Parse a Python file and extract all code entities"""

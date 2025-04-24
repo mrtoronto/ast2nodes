@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+      "code_graph": {
+        "command": "./venv/bin/python",
+        "args": [
+            "./mcp/main.py",
+            "--graph-file",
+            "./data/graph.json"
+          ],
+          "description": "An MCP server to intelligently search through a codebase using a knowledge graph"
+      }
+    }
+  }

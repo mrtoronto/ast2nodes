@@ -8,6 +8,7 @@ class BaseEntity:
     line_number: int
     column_offset: int
     docstring: Optional[str] = None
+    properties: Dict[str, Any] = field(default_factory=dict)  # Metadata dictionary for extensible properties
 
 # Python-specific entities
 @dataclass
@@ -85,4 +86,31 @@ class JSEventListener:
     handler: str
     line_number: int
     column_offset: int
-    docstring: Optional[str] = None 
+    docstring: Optional[str] = None
+
+@dataclass
+class FileEntity(BaseEntity):
+    """Represents a file in the codebase"""
+    name: str
+    line_number: int
+    column_offset: int
+    docstring: Optional[str] = None
+    properties: Dict[str, Any] = field(default_factory=dict)
+    path: str = field(default="")
+    parent_folder: Optional[str] = None
+    imports: List[str] = field(default_factory=list)  # List of imported modules/files
+    defined_entities: Set[str] = field(default_factory=set)  # Entities defined in this file
+    used_entities: Set[str] = field(default_factory=set)  # Entities used in this file
+
+@dataclass
+class FolderEntity(BaseEntity):
+    """Represents a folder in the codebase"""
+    name: str
+    line_number: int
+    column_offset: int
+    docstring: Optional[str] = None
+    properties: Dict[str, Any] = field(default_factory=dict)
+    path: str = field(default="")
+    parent_folder: Optional[str] = None
+    files: List[str] = field(default_factory=list)  # List of files in this folder
+    subfolders: List[str] = field(default_factory=list)  # List of subfolders 

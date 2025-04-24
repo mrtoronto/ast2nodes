@@ -2,7 +2,14 @@ from typing import List, Dict, Optional, Union, Literal
 from pydantic import BaseModel, Field
 
 # Define valid entity and relation types using Literal types
-EntityTypeStr = Literal["function", "variable", "class", "function_call"]
+EntityTypeStr = Literal[
+    'function',
+    'variable',
+    'class',
+    'function_call',
+    'file',
+    'folder'
+]
 RelationTypeStr = Literal["calls", "defines", "defined_by", "uses", "called_by", "used_by"]
 
 class EntityTypeModel(BaseModel):
