@@ -1,0 +1,605 @@
+{
+  "entities": {
+    "folder:flask-demo": {
+      "name": "flask-demo",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [
+          "folder:.git",
+          "file:app.py",
+          "folder:templates"
+        ],
+        "uses": [],
+        "calls": [],
+        "defined_by": [],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "file:app.py": {
+      "name": "app.py",
+      "type": "file",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "file",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [
+          "var:app.py:kg_test_var",
+          "var:app.py:app",
+          "func:app.py:home"
+        ],
+        "uses": [
+          "call:app.py:app.route",
+          "call:app.py:render_template",
+          "call:app.py:app.run",
+          "call:app.py:Flask"
+        ],
+        "calls": [],
+        "defined_by": [
+          "folder:flask-demo"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:templates": {
+      "name": "templates",
+      "type": "folder",
+      "sources": [
+        {
+          "file": "templates",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [
+          "file:templates/index.html"
+        ],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:flask-demo"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "file:templates/index.html": {
+      "name": "index.html",
+      "type": "file",
+      "sources": [
+        {
+          "file": "templates/index.html",
+          "parser": "file",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:templates"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:.git": {
+      "name": ".git",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [
+          "folder:hooks",
+          "folder:objects",
+          "folder:refs",
+          "folder:info",
+          "folder:logs"
+        ],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:flask-demo"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:objects": {
+      "name": "objects",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/objects",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:pack": {
+      "name": "pack",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/objects/pack",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git/objects"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:info": {
+      "name": "info",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/objects/info",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        },
+        {
+          "file": ".git/info",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:logs": {
+      "name": "logs",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/logs",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:refs": {
+      "name": "refs",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/logs/refs",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        },
+        {
+          "file": ".git/refs",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:heads": {
+      "name": "heads",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/logs/refs/heads",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        },
+        {
+          "file": ".git/refs/heads",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git/refs"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:remotes": {
+      "name": "remotes",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/logs/refs/remotes",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        },
+        {
+          "file": ".git/refs/remotes",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git/refs"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:origin": {
+      "name": "origin",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/logs/refs/remotes/origin",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        },
+        {
+          "file": ".git/refs/remotes/origin",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git/refs/remotes"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:hooks": {
+      "name": "hooks",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/hooks",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "folder:tags": {
+      "name": "tags",
+      "type": "folder",
+      "sources": [
+        {
+          "file": ".git/refs/tags",
+          "parser": "folder",
+          "line_number": 0,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "folder:.git/refs"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "func:app.py:home": {
+      "name": "home",
+      "type": "function",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 8,
+          "column_offset": 0
+        }
+      ],
+      "properties": {
+        "source": "internal",
+        "docstring": "This is a test docstring to demo whether the KG can read docstrings"
+      },
+      "relationships": {
+        "defines": [],
+        "uses": [
+          "var:app.py:app"
+        ],
+        "calls": [
+          "func:app.py:render_template",
+          "func:app.route",
+          "call:app.py:home:render_template",
+          "call:app.py:home:app.route"
+        ],
+        "defined_by": [
+          "file:app.py"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "var:app.py:app": {
+      "name": "app",
+      "type": "variable",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 3,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "file:app.py"
+        ],
+        "used_by": [
+          "func:app.py:home",
+          "call:app.py:app.run",
+          "call:app.py:home:app.route"
+        ],
+        "called_by": []
+      }
+    },
+    "var:app.py:kg_test_var": {
+      "name": "kg_test_var",
+      "type": "variable",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 5,
+          "column_offset": 0
+        }
+      ],
+      "properties": {},
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [],
+        "defined_by": [
+          "file:app.py"
+        ],
+        "used_by": [],
+        "called_by": []
+      }
+    },
+    "call:app.py:Flask": {
+      "name": "Flask",
+      "type": "function_call",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 3,
+          "column_offset": 6
+        }
+      ],
+      "properties": {
+        "source": "external",
+        "import_info": {
+          "module": "flask",
+          "name": "Flask",
+          "alias": null,
+          "type": "import_from"
+        }
+      },
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [
+          "func:app.py:Flask"
+        ],
+        "defined_by": [],
+        "used_by": [
+          "file:app.py"
+        ],
+        "called_by": []
+      }
+    },
+    "call:app.py:home:render_template": {
+      "name": "render_template",
+      "type": "function_call",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 12,
+          "column_offset": 11
+        }
+      ],
+      "properties": {
+        "source": "external",
+        "import_info": {
+          "module": "flask",
+          "name": "render_template",
+          "alias": null,
+          "type": "import_from"
+        }
+      },
+      "relationships": {
+        "defines": [],
+        "uses": [],
+        "calls": [
+          "func:app.py:render_template"
+        ],
+        "defined_by": [],
+        "used_by": [],
+        "called_by": [
+          "func:app.py:home"
+        ]
+      }
+    },
+    "call:app.py:home:app.route": {
+      "name": "app.route",
+      "type": "function_call",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 7,
+          "column_offset": 1
+        }
+      ],
+      "properties": {
+        "source": "unknown"
+      },
+      "relationships": {
+        "defines": [],
+        "uses": [
+          "var:app.py:app"
+        ],
+        "calls": [
+          "func:app.route"
+        ],
+        "defined_by": [],
+        "used_by": [],
+        "called_by": [
+          "func:app.py:home"
+        ]
+      }
+    },
+    "call:app.py:app.run": {
+      "name": "app.run",
+      "type": "function_call",
+      "sources": [
+        {
+          "file": "app.py",
+          "parser": "python",
+          "line_number": 15,
+          "column_offset": 4
+        }
+      ],
+      "properties": {
+        "source": "unknown"
+      },
+      "relationships": {
+        "defines": [],
+        "uses": [
+          "var:app.py:app"
+        ],
+        "calls": [
+          "func:app.run"
+        ],
+        "defined_by": [],
+        "used_by": [
+          "file:app.py"
+        ],
+        "called_by": []
+      }
+    }
+  }
+}
